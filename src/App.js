@@ -1,19 +1,28 @@
 import logo from './logo.svg';
 import './App.css';
+import TodoFeature from './features/Todo/pages';
+import AlbumFeature from './features/Album/pages';
+import Counter from './components/Counter';
+import ColorBox from './components/ColorBox';
 
 function App() {
 
-  const name = 'Bac'
-  const age = 20;
-  const isFemale = false;
-  const student = {
-    name: 'Backend'
-  }
-  const colorList = ['red', 'green', 'blue']
+  // const name = 'Bac'
+  // const age = 20;
+  // const isFemale = false;
+  // const student = {
+  //   name: 'Backend'
+  // }
+  // const colorList = ['red', 'green', 'blue']
 
   return (
     <div className="App">
-      <header className="App-header">
+      <AlbumFeature/>
+
+      <Counter/>
+      <ColorBox/>
+      {/* < TodoFeature /> */}
+      {/* <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
           Bac Ng
@@ -27,7 +36,7 @@ function App() {
             <li key={color} style={{ color }}>{color}</li>
           ))}
         </ul>
-      </header>
+      </header> */}
     </div>
   );
 }
