@@ -4,6 +4,7 @@ import TodoFeature from './features/Todo/pages';
 import AlbumFeature from './features/Album/pages';
 import Counter from './components/Counter';
 import ColorBox from './components/ColorBox';
+import { Route } from 'react-router-dom';
 
 function App() {
 
@@ -17,11 +18,14 @@ function App() {
 
   return (
     <div className="App">
+
+      <Route path="/todos" component={TodoFeature} />
+      <Route path="/album" component={AlbumFeature} />
       {/* <AlbumFeature/>
 
       <Counter/>
       <ColorBox/> */}
-      < TodoFeature />
+      {/* < TodoFeature /> */}
       {/* <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
