@@ -18,7 +18,7 @@ function App() {
 
   return (
     <div className="App">
-
+      HomePage 
       <Route path="/todos" component={TodoFeature} />
       <Route path="/album" component={AlbumFeature} />
       {/* <AlbumFeature/>
