@@ -4,7 +4,7 @@ import TodoFeature from './features/Todo/pages';
 import AlbumFeature from './features/Album/pages';
 import Counter from './components/Counter';
 import ColorBox from './components/ColorBox';
-import { Link, NavLink, Route } from 'react-router-dom';
+import { Link, NavLink, Route, Switch } from 'react-router-dom';
 import Header from './components/Header';
 import Footer from './components/Footer';
 
@@ -23,18 +23,27 @@ function App() {
       HomePage 
       Header
       <Header/>
+      <p><Link to="/">Home</Link></p>
 
       {/* Sử dụng Link */}
-      <p><Link to="/">Home</Link></p>
+      {/* <p><Link to="/">Home</Link></p>
       <p><Link to="/todos">Todos</Link></p>
-      <p><Link to="/album">album</Link></p>
+      <p><Link to="/album">album</Link></p> */}
 
       {/* Sử dụng NavLink, sự khác nhau giữa Link/NavLink với thuộc tính activeClassName */}
       <p><NavLink to="/todos">Todos</NavLink></p>
       <p><NavLink to="/album" activeClassName='active-album'>album</NavLink></p>
 
+      {/* Sự khác nhau giữa route và switch
+      route sẽ match với tất cả, thằng nào khai báo cũng hiển thị
+      sưitch thì sẽ match và hiển thị thằng đầu tiên, bỏ qua những thằng còn lại phía sau */}
+      <Switch>
+        <Route path="/todos" component={TodoFeature} />
+        <Route path="/album" component={AlbumFeature} />
+      </Switch>
+{/* 
       <Route path="/todos" component={TodoFeature} />
-      <Route path="/album" component={AlbumFeature} />
+      <Route path="/album" component={AlbumFeature} /> */}
       <Footer/>
       {/* <AlbumFeature/>
 
