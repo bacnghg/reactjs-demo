@@ -9,7 +9,7 @@ Header.propTypes = {
 function Header(props) {
     return (
         <div>
-            
+            Header Home
         </div>
     );
 }
