@@ -7,8 +7,27 @@ import ColorBox from './components/ColorBox';
 import { Link, NavLink, Route, Switch } from 'react-router-dom';
 import Header from './components/Header';
 import Footer from './components/Footer';
+import { useEffect } from 'react';
+import productApi from './api/productApi';
 
 function App() {
+  useEffect(() => {
+    const fetchProducts = async () => {
+      const params = {
+        _limit: 10,
+      }
+      const productList = await productApi.getAll(params);
+      console.log(productList);
+    };
+
+    const getP1 = async () => {
+      const product1 = await productApi.get(13761499);
+      console.log(product1.name);
+    }
+
+    fetchProducts();
+    getP1();
+  }, [])
 
   // const name = 'Bac'
   // const age = 20;
@@ -20,10 +39,14 @@ function App() {
 
   return (
     <div className="App">
+
       HomePage 
       Header
       <Header/>
       <p><Link to="/">Home</Link></p>
+      <p>
+        product1.name
+      </p>
 
       {/* Sử dụng Link */}
       {/* <p><Link to="/">Home</Link></p>
