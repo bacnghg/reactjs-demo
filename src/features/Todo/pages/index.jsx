@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import TodoList from '../components/TodoList';
 import { useHistory, useLocation, useRouteMatch } from 'react-router-dom';
 import queryString from 'query-string';
+import TodoForm from '../components/TodoForm';
 
 TodoFeature.propTypes = {
     
@@ -97,8 +98,22 @@ function TodoFeature(props){
     }, [todoList, filteredStatus]) 
     // console.log(renderTodoList)
 
+    const handleTodoFormSubmit = (values) => {
+        console.log('Form submit: ', values)
+        const newTodo  = {
+            id: todoList.length + 1,
+            title: values.title,
+            status: 'new'
+        }
+
+        const newTodoList = [...todoList, newTodo];
+        setTodoList(newTodoList)
+    }
+
     return (
         <div>
+            <h3>What to do</h3>
+            <TodoForm onSubmit={handleTodoFormSubmit} />
             <h3>Todo List</h3>
             <TodoList todoList={renderTodoList} onTodoClick={handleTodoClick}/>
             <div>
